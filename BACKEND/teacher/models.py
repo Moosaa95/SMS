@@ -5,23 +5,25 @@ from phonenumber_field.modelfields import PhoneNumberField
 
 
 class Address(models.Model):
-    email = models.EmailField()
-    phone_number = PhoneNumberField(max_length=15)
     state = models.CharField(max_length=50)
     city = models.CharField(max_length=50)
+    housenumber = models.CharField(max_length=10)
 
     def __str__(self):
         return f'{self.state} {self.city}'
 
     class Meta:
-        verbose_name_plural = 'Address'
+        verbose_name_plural = 'Addresses'
     
 
 
 class Teacher(models.Model):
+    email = models.EmailField()
+    phone_number = PhoneNumberField(max_length=15)
     name = models.CharField(max_length=75)
-    address = models.OneToOneField(Address, on_delete=models.CASCADE)
+    address = models.ForeignKey(Address, on_delete=models.SET_NULL, null=True)
     post = models.CharField(max_length=100, null=True)
+    dob = models.DateField()
 
     def __str__(self):
         return f'{self.name}'
