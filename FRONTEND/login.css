@@ -1,0 +1,16 @@
+html{
+    background-color: rgb(206, 198, 198);
+}
+body{
+    width: 95%;
+    margin: 0 auto;
+    max-width: 1400px;
+}
+#login-contents{
+    padding: 10rem;
+    margin: 100px auto 0 auto;
+    background-color: rgb(255, 255, 255) ;
+    width:500px;
+    filter: drop-shadow(0 0 15px rgb(248, 102, 5));
+    border-radius: 15px;
+}
